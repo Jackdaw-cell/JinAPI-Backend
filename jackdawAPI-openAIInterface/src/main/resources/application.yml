@@ -1,0 +1,15 @@
+spring:
+#  web:
+#    resources:
+#      static-locations: classpath:/static/, classpath:/templates/
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+server:
+  port: 8114
+#多个key英文逗号分割
+chatgpt:
+  apiKey: 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
+#默认https://api.openai.com，如有自定义代理host，填写自定义代理host
+# 自定义代理host教程看https://github.com/Grt1228/chatgpt-java   ReadMe
+  apiHost: https://api.openai.com/

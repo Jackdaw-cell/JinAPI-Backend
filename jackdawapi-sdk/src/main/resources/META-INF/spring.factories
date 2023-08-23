@@ -1,0 +1,2 @@
+#编写一个spring stater
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.jackdawapi.jackdawapisdk.JackdawApiConfig

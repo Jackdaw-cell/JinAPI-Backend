@@ -1,0 +1,55 @@
+server:
+  port: 8122
+spring:
+  application:
+    name: jackdawAPI-gateway
+  main:
+    web-application-type: reactive
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8070   #控制台地址
+    gateway:
+      default-filters:
+        - AddResponseHeader=source, jackdaw
+        - AddRequestHeader=source, jackdawApi
+      routes:
+        - id: user
+          uri: http://localhost:8123
+          predicates:
+            - Path= /user/**
+        - id: chat
+          uri: http://localhost:8123
+          predicates:
+            - Path=/yucongming/**
+        - id: sms
+          uri: http://localhost:8123
+          predicates:
+            - Path=/sms/**
+#          filters:
+#            - AddRequestHeader=yupi,swag
+#            - AddRequestParameter=name,dog
+#            - name: CircuitBreaker
+#              args:
+#                name: myCircuitBreaker
+#                fallbackUri: forward:/fallback
+#      -id: yupi-fallback
+#       uri: https://yupi.icu
+#       predicates:
+#          - Path=/fallback
+logging:
+  level:
+    org:
+       springframework:
+             cloud:
+               gateway: trace
+dubbo:
+  application:
+    name: dubbo-springboot-demo-provider
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    id: nacos-registry
+    address: nacos://127.0.0.1:8848
+#    address: nacos://111.230.23.40:8848
