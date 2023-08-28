@@ -25,7 +25,6 @@ public class NameController {
     public String getUsernameByGet(@RequestParam("number") String number, @RequestHeader Map<String, String> headers) throws  InterruptedException {
             try{
                  number =new String(number.getBytes("ISO-8859-1"), "UTF-8");
-                 Thread.sleep(8000);
                  return "GET NUMBER 是：" + number;
             }catch (Exception e){
                  throw new InterruptedException();

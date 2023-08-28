@@ -1,4 +1,4 @@
-package com.yupi.springbootinit.constant;
+package com.jackdawapi.jackdawapisdk.constant;
 
 /**
  * 通用常量

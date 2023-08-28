@@ -1,6 +1,6 @@
-package com.yupi.springbootinit.common;
+package com.jackdawapi.jackdawapisdk.common;
 
-import com.yupi.springbootinit.constant.CommonConstant;
+import com.jackdawapi.jackdawapisdk.constant.CommonConstant;
 import lombok.Data;
 
 /**

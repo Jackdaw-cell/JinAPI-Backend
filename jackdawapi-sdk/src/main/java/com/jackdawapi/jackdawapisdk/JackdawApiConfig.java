@@ -27,7 +27,6 @@ import java.util.concurrent.TimeUnit;
 @Data
 @ComponentScan
 public class JackdawApiConfig {
-    //TODO:属性的值来自使用者的yml文件配置
 
     @Autowired
     private longApi longApi;
@@ -46,31 +45,31 @@ public class JackdawApiConfig {
         return new JackdawOpenAiClient(longApi.getApiKey(),longApi.getApiHost(),longApi.getProxyHostName(),longApi.getProxyPort());
     }
 
-    @Bean
-    public OpenAiStreamClient openAiStreamClient() {
-        List<String> userApiKey = new ArrayList<>();
-        userApiKey.add(longApi.getApiHost());
-        //本地开发需要配置代理地址
-        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(longApi.getProxyHostName(),longApi.getProxyPort()));
-        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor(new OpenAILogger());
-        //!!!!!!测试或者发布到服务器千万不要配置Level == BODY!!!!
-        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.HEADERS);
-        OkHttpClient okHttpClient = new OkHttpClient
-                .Builder()
-                .proxy(proxy)
-                .addInterceptor(httpLoggingInterceptor)
-                .connectTimeout(30, TimeUnit.SECONDS)
-                .writeTimeout(600, TimeUnit.SECONDS)
-                .readTimeout(600, TimeUnit.SECONDS)
-                .build();
-        return OpenAiStreamClient
-                .builder()
-                .apiHost(longApi.getApiHost())
-                .apiKey(userApiKey)
-                //自定义key使用策略 默认随机策略
-                .keyStrategy(new KeyRandomStrategy())
-                .okHttpClient(okHttpClient)
-                .build();
-    }
+//    @Bean
+//    public OpenAiStreamClient openAiStreamClient() {
+//        List<String> userApiKey = new ArrayList<>();
+//        userApiKey.add(longApi.getApiHost());
+//        //本地开发需要配置代理地址
+//        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(longApi.getProxyHostName(),longApi.getProxyPort()));
+//        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor(new OpenAILogger());
+//        //!!!!!!测试或者发布到服务器千万不要配置Level == BODY!!!!
+//        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.HEADERS);
+//        OkHttpClient okHttpClient = new OkHttpClient
+//                .Builder()
+//                .proxy(proxy)
+//                .addInterceptor(httpLoggingInterceptor)
+//                .connectTimeout(30, TimeUnit.SECONDS)
+//                .writeTimeout(600, TimeUnit.SECONDS)
+//                .readTimeout(600, TimeUnit.SECONDS)
+//                .build();
+//        return OpenAiStreamClient
+//                .builder()
+//                .apiHost(longApi.getApiHost())
+//                .apiKey(userApiKey)
+//                //自定义key使用策略 默认随机策略
+//                .keyStrategy(new KeyRandomStrategy())
+//                .okHttpClient(okHttpClient)
+//                .build();
+//    }
 
 }

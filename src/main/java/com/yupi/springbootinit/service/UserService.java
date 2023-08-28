@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jackdawapi.jackdawapicommon.model.entity.User;
 import com.yupi.springbootinit.model.dto.user.UserQueryRequest;
+import com.yupi.springbootinit.model.vo.LoginUserDetailVO;
 import com.yupi.springbootinit.model.vo.LoginUserVO;
 import com.yupi.springbootinit.model.vo.UserVO;
 import java.util.List;
@@ -93,6 +94,13 @@ public interface UserService extends IService<User> {
      * @return
      */
     LoginUserVO getLoginUserVO(User user);
+
+    /**
+     * 获取详细已登录用户信息
+     *
+     * @return
+     */
+    LoginUserDetailVO getLoginUserDetailVO(User user);
 
     /**
      * 获取脱敏的用户信息

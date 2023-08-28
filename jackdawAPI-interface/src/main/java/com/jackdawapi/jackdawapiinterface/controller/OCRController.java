@@ -19,8 +19,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author Eric
- * @create  2022-05-22 15:12
+ * @author Jackdaw
  */
 @RestController
 @RequestMapping("/ocr")

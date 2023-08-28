@@ -5,8 +5,7 @@ import com.jackdawapi.jackdawapiinterface.model.msmBodyVO;
 import java.util.Map;
 
 /**
- * @author Eric
- * @create 2022-05-22 15:08
+ * @author Jackdaw
  */
 public interface MsmService {
     //发送验证码

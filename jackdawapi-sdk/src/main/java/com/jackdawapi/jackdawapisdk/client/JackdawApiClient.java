@@ -4,6 +4,9 @@ import cn.hutool.core.util.RandomUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.json.JSONObject;
+import com.jackdawapi.jackdawapisdk.common.BaseResponse;
+import com.jackdawapi.jackdawapisdk.common.ResultUtils;
+
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -14,7 +17,7 @@ import static com.jackdawapi.jackdawapisdk.utils.SignUtils.genSign;
 /**
  * 调用第三方接口的客户端
  *
- * @author yupi
+ * @author jackdaw
  */
 public class JackdawApiClient {
 
@@ -79,7 +82,7 @@ public class JackdawApiClient {
      * @param bodyJson
      * @return
      */
-    public String postRequest(String bodyJson,String url) {
+    public BaseResponse<Object> postRequest(String bodyJson,String url) {
         // 请求头传递过程会出现乱码问题，而请求体传到控制器时会自动序列化为对象，不需要处理乱码
         // 因此，请求头的body要进行utf8编码，请求体不需要进行编码
         HttpResponse httpResponse = HttpRequest.post(GATEWAY_HOST + url)
@@ -87,7 +90,8 @@ public class JackdawApiClient {
                 .charset(StandardCharsets.UTF_8)
                 .body(bodyJson)
                 .execute();
-        return httpResponse.body();
+        String result = httpResponse.body();
+        return ResultUtils.success(result);
     }
 
     /**
@@ -95,7 +99,7 @@ public class JackdawApiClient {
      * @param bodyJson
      * @return
      */
-    public String getRequest(String bodyJson,String url) {
+    public BaseResponse<Object> getRequest(String bodyJson, String url) {
         // 将JSON字符串转换为JSONObject
         JSONObject jsonObject = new JSONObject(bodyJson);
         // 将JSONObject转换为HashMap
@@ -104,12 +108,14 @@ public class JackdawApiClient {
             Object value = jsonObject.get(key);
             hashMap.put(key, value);
         }
-        return HttpRequest.get(GATEWAY_HOST + url)
+        String result = HttpRequest.get(GATEWAY_HOST + url)
                 .addHeaders(getHeaderMap(getUTF8String(bodyJson)))
                 .form((hashMap))
                 .charset(StandardCharsets.UTF_8)
                 .execute()
                 .body();
+        return ResultUtils.success(result);
+         
     }
 
 

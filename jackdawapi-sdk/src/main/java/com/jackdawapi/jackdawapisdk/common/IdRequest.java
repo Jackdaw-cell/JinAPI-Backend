@@ -1,15 +1,15 @@
-package com.yupi.springbootinit.common;
+package com.jackdawapi.jackdawapisdk.common;
+
+import lombok.Data;
 
 import java.io.Serializable;
-import lombok.Data;
 
 /**
  * 删除请求
  *
  */
 @Data
-public class DeleteRequest implements Serializable {
-
+public class IdRequest implements Serializable {
     /**
      * id
      */

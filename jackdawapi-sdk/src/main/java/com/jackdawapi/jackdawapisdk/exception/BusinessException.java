@@ -1,6 +1,6 @@
-package com.yupi.springbootinit.exception;
+package com.jackdawapi.jackdawapisdk.exception;
 
-import com.yupi.springbootinit.common.ErrorCode;
+import com.jackdawapi.jackdawapisdk.common.ErrorCode;
 
 /**
  * 自定义异常类

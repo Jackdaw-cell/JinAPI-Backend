@@ -2,10 +2,10 @@ package com.jackdawapi.jackdawapisdk.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
-import com.jackdawapi.jackdawapicommon.model.entity.OpenAI.ChatRequest;
-import com.jackdawapi.jackdawapicommon.model.entity.OpenAI.ChatResponse;
 import com.jackdawapi.jackdawapisdk.config.LocalCache;
 import com.jackdawapi.jackdawapisdk.listener.OpenAISSEEventSourceListener;
+import com.jackdawapi.jackdawapisdk.model.OpenAI.ChatRequest;
+import com.jackdawapi.jackdawapisdk.model.OpenAI.ChatResponse;
 import com.jackdawapi.jackdawapisdk.service.SseService;
 import com.unfbx.chatgpt.OpenAiStreamClient;
 import com.unfbx.chatgpt.entity.chat.ChatCompletion;
@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
@@ -33,7 +34,6 @@ import java.util.concurrent.TimeUnit;
  * @author https:www.unfbx.com
  * @date 2023-04-08
  */
-@Service
 @Slf4j
 public class SseServiceImpl implements SseService {
 

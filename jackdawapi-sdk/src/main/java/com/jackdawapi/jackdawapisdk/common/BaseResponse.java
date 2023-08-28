@@ -1,7 +1,8 @@
-package com.yupi.springbootinit.common;
+package com.jackdawapi.jackdawapisdk.common;
+
+import lombok.Data;
 
 import java.io.Serializable;
-import lombok.Data;
 
 /**
  * 通用返回类
@@ -29,5 +30,11 @@ public class BaseResponse<T> implements Serializable {
 
     public BaseResponse(ErrorCode errorCode) {
         this(errorCode.getCode(), null, errorCode.getMessage());
+    }
+
+    public BaseResponse() {
+        this.code = -1;
+        this.data = null;
+        this.message = "";
     }
 }

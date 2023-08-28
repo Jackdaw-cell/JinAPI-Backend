@@ -66,7 +66,7 @@
             <version>5.8.9</version>
         </dependency>
         <dependency>
-            <groupId>org.jackdawapi</groupId>
+            <groupId>io.github.jackdaw-cell</groupId>
             <artifactId>jackdawapi-common</artifactId>
             <version>0.0.1</version>
         </dependency>

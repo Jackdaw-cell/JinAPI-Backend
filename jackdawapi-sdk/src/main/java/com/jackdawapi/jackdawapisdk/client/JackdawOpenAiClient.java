@@ -1,8 +1,8 @@
 package com.jackdawapi.jackdawapisdk.client;
 
 import cn.hutool.core.util.StrUtil;
-import com.jackdawapi.jackdawapicommon.model.entity.OpenAI.ChatRequest;
-import com.jackdawapi.jackdawapicommon.model.entity.OpenAI.ChatResponse;
+import com.jackdawapi.jackdawapisdk.model.OpenAI.ChatRequest;
+import com.jackdawapi.jackdawapisdk.model.OpenAI.ChatResponse;
 import com.jackdawapi.jackdawapisdk.service.SseService;
 import com.jackdawapi.jackdawapisdk.service.impl.SseServiceImpl;
 import com.unfbx.chatgpt.OpenAiStreamClient;
@@ -30,7 +30,6 @@ public class JackdawOpenAiClient {
 
     private SseService sseService;
 
-//    private List<String> apiKey = new ArrayList<>();
 
     public JackdawOpenAiClient(String userApiKey, String apiHost,String proxyHostName,Integer proxyPort) {
         List<String> apiKey = new ArrayList<>();

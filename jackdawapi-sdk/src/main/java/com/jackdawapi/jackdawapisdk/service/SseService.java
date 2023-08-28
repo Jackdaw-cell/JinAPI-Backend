@@ -1,7 +1,7 @@
 package com.jackdawapi.jackdawapisdk.service;
 
-import com.jackdawapi.jackdawapicommon.model.entity.OpenAI.ChatRequest;
-import com.jackdawapi.jackdawapicommon.model.entity.OpenAI.ChatResponse;
+import com.jackdawapi.jackdawapisdk.model.OpenAI.ChatRequest;
+import com.jackdawapi.jackdawapisdk.model.OpenAI.ChatResponse;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 /**

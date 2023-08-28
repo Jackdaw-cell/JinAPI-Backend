@@ -1,4 +1,4 @@
-package com.yupi.springbootinit.common;
+package com.jackdawapi.jackdawapisdk.common;
 
 /**
  * 返回工具类

@@ -16,6 +16,7 @@ import com.yupi.springbootinit.model.dto.user.UserQueryRequest;
 import com.yupi.springbootinit.model.dto.user.UserRegisterRequest;
 import com.yupi.springbootinit.model.dto.user.UserUpdateMyRequest;
 import com.yupi.springbootinit.model.dto.user.UserUpdateRequest;
+import com.yupi.springbootinit.model.vo.LoginUserDetailVO;
 import com.yupi.springbootinit.model.vo.LoginUserVO;
 import com.yupi.springbootinit.model.vo.UserVO;
 import com.yupi.springbootinit.service.UserService;
@@ -39,8 +40,6 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 用户接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @RestController
 @RequestMapping("/user")
@@ -147,6 +146,17 @@ public class UserController {
         return ResultUtils.success(userService.getLoginUserVO(user));
     }
 
+    /**
+     * 获取当前登录用户详细信息
+     *
+     * @param request
+     * @return
+     */
+    @GetMapping("/get/userDetail")
+    public BaseResponse<LoginUserDetailVO> getLoginUserDetail(HttpServletRequest request) {
+        User user = userService.getLoginUser(request);
+        return ResultUtils.success(userService.getLoginUserDetailVO(user));
+    }
     // endregion
 
     // region 增删改查
