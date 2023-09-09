@@ -56,6 +56,11 @@ public class User implements Serializable {
     private String secretKey;
 
     /**
+     * 调用次数
+     */
+    private int count;
+
+    /**
      * 创建时间
      */
     private Date createTime;
@@ -70,6 +75,8 @@ public class User implements Serializable {
      */
     @TableLogic
     private Integer isDelete;
+
+
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

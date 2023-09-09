@@ -1,5 +1,6 @@
 package com.jackdawapi.jackdawapiinterface.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.jackdawapi.jackdawapiinterface.annotation.LockCheck;
 import com.jackdawapi.jackdawapiinterface.annotation.SourceCheck;
 import com.jackdawapi.jackdawapiinterface.model.msmBodyVO;
@@ -32,6 +33,7 @@ public class OCRController {
     @LockCheck(lockId = "")
     @SourceCheck
     @PostMapping("/getText")
+    @SentinelResource(value="getUsernameByGet",fallback="fallback")
     public String code(@RequestBody msmBodyVO msm) throws TesseractException {
             ITesseract instance = new Tesseract();
             // 指定训练数据集合的路径
@@ -47,6 +49,13 @@ public class OCRController {
             // 输出识别结果
             System.out.println("OCR Result: \n" + ocrResult + "\n 耗时：" + (System.currentTimeMillis() - startTime) + "ms");
             return ocrResult;
+    }
+
+    /**
+     * 降级处理
+     */
+    public String fallback(@RequestParam("number") String number, @RequestHeader Map<String, String> headers){
+        return null;
     }
 }
 

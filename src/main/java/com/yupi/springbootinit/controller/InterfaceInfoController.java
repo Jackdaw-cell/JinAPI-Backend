@@ -6,6 +6,9 @@ import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.gson.Gson;
+import com.jackdawapi.jackdawapiapidoc.annotation.JMethod;
+import com.jackdawapi.jackdawapiapidoc.annotation.JParams;
+import com.jackdawapi.jackdawapiapidoc.annotation.JService;
 import com.jackdawapi.jackdawapicommon.model.entity.InterfaceInfo;
 import com.jackdawapi.jackdawapisdk.model.OpenAI.ChatRequest;
 import com.jackdawapi.jackdawapisdk.model.OpenAI.ChatResponse;
@@ -43,6 +46,7 @@ import java.util.Map;
 /**
  *
  */
+@JService
 @RestController
 @RequestMapping("/interfaceInfo")
 @Slf4j
@@ -73,7 +77,9 @@ public class InterfaceInfoController {
      * @return
      */
     @PostMapping("/add")
-    public BaseResponse<Long> addInterfaceInfo(@RequestBody InterfaceInfoAddRequest interfaceInfoAddRequest, HttpServletRequest request) {
+    public BaseResponse<Long> addInterfaceInfo(@RequestBody
+                                               InterfaceInfoAddRequest interfaceInfoAddRequest,
+                                               HttpServletRequest request) {
         if (interfaceInfoAddRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -83,6 +89,7 @@ public class InterfaceInfoController {
         interfaceInfoService.validInterfaceInfo(interfaceInfo, true);
         User loginUser = userService.getLoginUser(request);
         interfaceInfo.setUserId(loginUser.getId());
+
         boolean result = interfaceInfoService.save(interfaceInfo);
         if (!result) {
             throw new BusinessException(ErrorCode.OPERATION_ERROR);
@@ -332,8 +339,11 @@ public class InterfaceInfoController {
      * @return
      */
     @PostMapping("/invokeByGet")
-    public BaseResponse<Object> invokeInterfaceInfoByGet(@RequestBody InterfaceInfoInvokeRequest interfaceInfoInvokeRequest,
-                                                    HttpServletRequest request) {
+    @JMethod
+    public BaseResponse<Object> invokeInterfaceInfoByGet(@RequestBody
+                                                         @JParams
+                                                         InterfaceInfoInvokeRequest interfaceInfoInvokeRequest,
+                                                        HttpServletRequest request) {
         if (interfaceInfoInvokeRequest == null || interfaceInfoInvokeRequest.getId() <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -369,7 +379,7 @@ public class InterfaceInfoController {
         }
         try{
             // TODO:改为创建者模式，一层一层地Build
-            JackdawOpenAiClient tempTackdawOpenAiClient = new JackdawOpenAiClient("","https://api.openai.com/","127.0.0.1",7890);
+            JackdawOpenAiClient tempTackdawOpenAiClient = new JackdawOpenAiClient("","https://api.openai.com/","127.0.0.1",33210);
             return tempTackdawOpenAiClient.createConnect();
         }catch (Exception e){
             throw new BusinessException(ErrorCode.PARAMS_ERROR,"创建SSE客户端失败");

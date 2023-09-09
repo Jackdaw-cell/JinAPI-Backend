@@ -29,6 +29,11 @@ public class InterfaceInfoInvokeRequest implements Serializable {
      */
     private Integer connectType;
 
+    /**
+     * 调用次数
+     */
+    private Integer count;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 

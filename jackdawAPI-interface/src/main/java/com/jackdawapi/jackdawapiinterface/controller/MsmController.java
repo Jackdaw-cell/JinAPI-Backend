@@ -1,5 +1,6 @@
 package com.jackdawapi.jackdawapiinterface.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.jackdawapi.jackdawapiinterface.annotation.LockCheck;
 import com.jackdawapi.jackdawapiinterface.annotation.SourceCheck;
 import com.jackdawapi.jackdawapiinterface.model.chatBodyVO;
@@ -33,6 +34,7 @@ public class MsmController {
     @LockCheck(lockId = "")
     @SourceCheck
     @PostMapping("/send")
+    @SentinelResource(value="code",fallback="fallback")
     public Boolean code(@RequestBody msmBodyVO msm, @RequestHeader Map<String, String> headers) {
             //1、从redis中获取验证码，如果获取到就直接返回
             String code = redisTemplate.opsForValue().get(msm.getPhoneNumbers());
@@ -55,6 +57,13 @@ public class MsmController {
             } else {
                 return false;
             }
+    }
+
+    /**
+     * 降级处理
+     */
+    public String fallback(@RequestBody chatBodyVO chatBody,  @RequestHeader Map<String, String> headers){
+        return null;
     }
 }
 

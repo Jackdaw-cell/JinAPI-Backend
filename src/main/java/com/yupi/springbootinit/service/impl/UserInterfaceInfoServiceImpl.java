@@ -34,6 +34,7 @@ public class UserInterfaceInfoServiceImpl extends ServiceImpl<UserInterfaceInfoM
 
     @Override
     public boolean invokeCount(long interfaceInfoId, long userId) {
+        //TODO:要改为用户总调用次数，每次总调用减一，接口的调用次数+1
         //判断
         if (interfaceInfoId <= 0 || userId<=0){
             throw new BusinessException(ErrorCode.PARAMS_ERROR);

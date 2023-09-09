@@ -21,8 +21,7 @@ import static com.jackdawapi.jackdawapisdk.utils.SignUtils.genSign;
  */
 public class JackdawApiClient {
 
-    //网关地址
-//    private static final String GATEWAY_HOST = "http://openapiservice.linhaijian.top";
+//    private static final String GATEWAY_HOST = "http://111.230.23.40:8122";
     private static final String GATEWAY_HOST = "http://127.0.0.1:8122";
 
     private String accessKey;

@@ -1,5 +1,6 @@
 package com.jackdawapi.jackdawapiinterface.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.jackdawapi.jackdawapiinterface.annotation.LockCheck;
 import com.jackdawapi.jackdawapiinterface.annotation.SourceCheck;
 import com.jackdawapi.jackdawapiinterface.model.chatBodyVO;
@@ -22,6 +23,7 @@ public class YuCongMingChatController {
     @LockCheck(lockId = "")
     @SourceCheck
     @PostMapping("/chat")
+    @SentinelResource(value="chat",fallback="fallback")
     public String chat(@RequestBody chatBodyVO chatBody,  @RequestHeader Map<String, String> headers){
             try {
                     String accessKey = chatBody.getAccessKey();
@@ -38,5 +40,12 @@ public class YuCongMingChatController {
                 e.printStackTrace();
             }
             return null;
+    }
+
+    /**
+     * 降级处理
+     */
+    public String fallback(@RequestBody chatBodyVO chatBody,  @RequestHeader Map<String, String> headers){
+        return null;
     }
 }

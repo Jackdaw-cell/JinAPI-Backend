@@ -135,11 +135,16 @@
         <dependency>
             <groupId>io.github.jackdaw-cell</groupId>
             <artifactId>jackdawapi-sdk</artifactId>
-            <version>0.0.4</version>
+            <version>0.0.5</version>
         </dependency>
         <dependency>
             <groupId>io.github.jackdaw-cell</groupId>
             <artifactId>jackdawapi-common</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.jackdaw-cell</groupId>
+            <artifactId>jackdawapi-apiDoc</artifactId>
             <version>0.0.1</version>
         </dependency>
         <dependency>

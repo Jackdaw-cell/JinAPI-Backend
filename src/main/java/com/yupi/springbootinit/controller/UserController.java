@@ -1,5 +1,7 @@
 package com.yupi.springbootinit.controller;
 
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.extension.conditions.update.UpdateChainWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jackdawapi.jackdawapicommon.model.entity.User;
 import com.yupi.springbootinit.annotation.AuthCheck;
@@ -10,16 +12,13 @@ import com.yupi.springbootinit.common.ResultUtils;
 import com.yupi.springbootinit.constant.UserConstant;
 import com.yupi.springbootinit.exception.BusinessException;
 import com.yupi.springbootinit.exception.ThrowUtils;
-import com.yupi.springbootinit.model.dto.user.UserAddRequest;
-import com.yupi.springbootinit.model.dto.user.UserLoginRequest;
-import com.yupi.springbootinit.model.dto.user.UserQueryRequest;
-import com.yupi.springbootinit.model.dto.user.UserRegisterRequest;
-import com.yupi.springbootinit.model.dto.user.UserUpdateMyRequest;
-import com.yupi.springbootinit.model.dto.user.UserUpdateRequest;
+import com.yupi.springbootinit.model.dto.user.*;
 import com.yupi.springbootinit.model.vo.LoginUserDetailVO;
 import com.yupi.springbootinit.model.vo.LoginUserVO;
 import com.yupi.springbootinit.model.vo.UserVO;
 import com.yupi.springbootinit.service.UserService;
+
+import java.sql.Wrapper;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -314,6 +313,25 @@ public class UserController {
         BeanUtils.copyProperties(userUpdateMyRequest, user);
         user.setId(loginUser.getId());
         boolean result = userService.updateById(user);
+        ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
+        return ResultUtils.success(true);
+    }
+
+    /**
+     * 添加接口调用次数
+     *
+     * @param updateAddCountRequest
+     * @param request
+     * @return
+     */
+    @PostMapping("/update/addCount")
+    public BaseResponse<Boolean> addCount(@RequestBody UserUpdateAddCountRequest updateAddCountRequest,
+                                              HttpServletRequest request) {
+        if (updateAddCountRequest == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        User loginUser = userService.getLoginUser(request);
+        boolean result = userService.addCount(loginUser.getId(),updateAddCountRequest.getCount());
         ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
         return ResultUtils.success(true);
     }

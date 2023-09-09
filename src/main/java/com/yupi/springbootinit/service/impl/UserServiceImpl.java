@@ -5,8 +5,10 @@ import static com.yupi.springbootinit.constant.UserConstant.USER_LOGIN_STATE;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.crypto.digest.DigestUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.jackdawapi.jackdawapicommon.model.entity.InterfaceInfo;
 import com.jackdawapi.jackdawapicommon.model.entity.User;
 import com.yupi.springbootinit.common.ErrorCode;
 import com.yupi.springbootinit.constant.CommonConstant;
@@ -80,6 +82,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             user.setUserPassword(encryptPassword);
             user.setAccessKey(accessKey);
             user.setSecretKey(secretKey);
+            user.setCount(20);
             boolean saveResult = this.save(user);
             if (!saveResult) {
                 throw new BusinessException(ErrorCode.SYSTEM_ERROR, "注册失败，数据库错误");
@@ -115,6 +118,37 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         // 3. 记录用户的登录态
         request.getSession().setAttribute(USER_LOGIN_STATE, user);
         return this.getLoginUserVO(user);
+    }
+
+    public boolean invokeCount(long interfaceInfoId, long userId) {
+        //判断
+        if (interfaceInfoId <= 0 || userId<=0){
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        //userId加入字符串常量作为锁，好处：解决线程安全问题 缺陷：线程死锁问题还没解决
+        synchronized (Long.toString(userId).intern()) {
+            UpdateWrapper<User> updateWrapper = new UpdateWrapper<>();
+            QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+            updateWrapper.eq("id", userId);
+            queryWrapper.eq("id", userId);
+            User user = this.baseMapper.selectOne(queryWrapper);
+            if (user.getCount() <= 0) {
+                throw new BusinessException(ErrorCode.PARAMS_ERROR,"用户无剩余调用次数");
+            }
+            updateWrapper.setSql(" count = count - 1");
+            return this.update(updateWrapper);
+        }
+    }
+
+    @Override
+    public boolean addCount( long userId,int count){
+        //userId加入字符串常量作为锁，好处：解决线程安全问题 缺陷：线程死锁问题还没解决
+        synchronized (Long.toString(userId).intern()) {
+            UpdateWrapper<User> updateWrapper = new UpdateWrapper<>();
+            updateWrapper.eq("id", userId);
+            updateWrapper.setSql(" count = count + " + count);
+            return this.update(updateWrapper);
+        }
     }
 
 //    @Override

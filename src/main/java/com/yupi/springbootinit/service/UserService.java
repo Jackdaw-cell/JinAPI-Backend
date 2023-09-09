@@ -40,6 +40,24 @@ public interface UserService extends IService<User> {
     LoginUserVO userLogin(String userAccount, String userPassword, HttpServletRequest request);
 
     /**
+     * 用户调用次数减1
+     *
+     * @param interfaceInfoId  接口
+     * @param userId 用户ID
+     * @return 脱敏后的用户信息
+     */
+    public boolean invokeCount(long interfaceInfoId, long userId);
+
+    /**
+     * 用户调用次数减1
+     *
+     * @param userId 用户ID
+     * @param count 接口次数
+     * @return 脱敏后的用户信息
+     */
+    public boolean addCount( long userId,int count);
+
+    /**
      * 用户登录（微信开放平台）
      *
      * @param wxOAuth2UserInfo 从微信获取的用户信息

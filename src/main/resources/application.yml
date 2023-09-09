@@ -17,6 +17,7 @@ spring:
        cookie:
          max-age: 2592000
 #         domain: linhaijian.top
+#         domain: 111.230.23.40,localhost
        store-type: redis
       # 30 天过期
        timeout: 2592000

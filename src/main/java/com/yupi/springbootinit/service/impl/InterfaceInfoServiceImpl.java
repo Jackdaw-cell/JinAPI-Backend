@@ -1,7 +1,9 @@
 package com.yupi.springbootinit.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jackdawapi.jackdawapicommon.model.entity.InterfaceInfo;
+import com.jackdawapi.jackdawapicommon.model.entity.UserInterfaceInfo;
 import com.yupi.springbootinit.common.ErrorCode;
 import com.yupi.springbootinit.exception.BusinessException;
 import com.yupi.springbootinit.mapper.InterfaceInfoMapper;
@@ -33,6 +35,20 @@ public class InterfaceInfoServiceImpl extends ServiceImpl<InterfaceInfoMapper, I
         }
         if (StringUtils.isNotBlank(name) && name.length() > 50) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "名称过长");
+        }
+    }
+
+    public boolean invokeCount(long interfaceInfoId, long userId) {
+        //判断
+        if (interfaceInfoId <= 0 || userId<=0){
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        //userId加入字符串常量作为锁，好处：解决线程安全问题 缺陷：线程死锁问题还没解决
+        synchronized (Long.toString(userId).intern()) {
+            UpdateWrapper<InterfaceInfo> updateWrapper = new UpdateWrapper<>();
+            updateWrapper.eq("id", interfaceInfoId);
+            updateWrapper.setSql(" count = count + 1");
+            return this.update(updateWrapper);
         }
     }
 }

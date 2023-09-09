@@ -24,6 +24,10 @@ public class InnerUserServiceImpl implements InnerUserService {
         }
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("accessKey", accessKey);
-        return userMapper.selectOne(queryWrapper);
+        User user = userMapper.selectOne(queryWrapper);
+        if (user.getCount() <= 0) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR,"调用次数用完");
+        }
+        return user;
     }
 }

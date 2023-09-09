@@ -10,7 +10,7 @@
     </parent>
     <groupId>io.github.jackdaw-cell</groupId>
     <artifactId>jackdawapi-sdk</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
     <name>jackdawapi-sdk</name>
     <description>jackdawAPI的sdk，具备功能：1、调用JinOpenAPI开发平台的内部接口；2、使用SSE进行OpenAI长连接对话；</description>
     <properties>
