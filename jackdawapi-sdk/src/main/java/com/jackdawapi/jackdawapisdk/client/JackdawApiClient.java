@@ -21,8 +21,8 @@ import static com.jackdawapi.jackdawapisdk.utils.SignUtils.genSign;
  */
 public class JackdawApiClient {
 
-//    private static final String GATEWAY_HOST = "http://111.230.23.40:8122";
-    private static final String GATEWAY_HOST = "http://127.0.0.1:8122";
+    private static final String GATEWAY_HOST = "http://111.230.23.40:8122";
+//    private static final String GATEWAY_HOST = "http://127.0.0.1:8122";
 
     private String accessKey;
 

@@ -112,24 +112,28 @@ public class SseServiceImpl implements SseService {
             Message currentMessage = Message.builder().content(chatRequest.getMsg()).role(Message.Role.USER).build();
             messages.add(currentMessage);
         }
+        try{
+            SseEmitter sseEmitter = (SseEmitter) LocalCache.CACHE.get(uid);
 
-        SseEmitter sseEmitter = (SseEmitter) LocalCache.CACHE.get(uid);
-
-        if (sseEmitter == null) {
+            if (sseEmitter == null) {
+                log.info("聊天消息推送失败uid:[{}],没有创建连接，请重试。", uid);
+                throw new BaseException("聊天消息推送失败uid:[{}],没有创建连接，请重试。~");
+            }
+            OpenAISSEEventSourceListener openAIEventSourceListener = new OpenAISSEEventSourceListener(sseEmitter);
+            ChatCompletion completion = ChatCompletion
+                    .builder()
+                    .messages(messages)
+                    .model(ChatCompletion.Model.GPT_3_5_TURBO.getName())
+                    .build();
+            // 模型的输出->sse流式输出 （持续的）
+            openAiStreamClient.streamChatCompletion(completion, openAIEventSourceListener);
+            LocalCache.CACHE.put("msg" + uid, JSONUtil.toJsonStr(messages), LocalCache.TIMEOUT);
+            ChatResponse response = new ChatResponse();
+            response.setQuestionTokens(completion.tokens());
+            return response;
+        }catch (Exception e){
             log.info("聊天消息推送失败uid:[{}],没有创建连接，请重试。", uid);
             throw new BaseException("聊天消息推送失败uid:[{}],没有创建连接，请重试。~");
         }
-        OpenAISSEEventSourceListener openAIEventSourceListener = new OpenAISSEEventSourceListener(sseEmitter);
-        ChatCompletion completion = ChatCompletion
-                .builder()
-                .messages(messages)
-                .model(ChatCompletion.Model.GPT_3_5_TURBO.getName())
-                .build();
-        // 模型的输出->sse流式输出 （持续的）
-        openAiStreamClient.streamChatCompletion(completion, openAIEventSourceListener);
-        LocalCache.CACHE.put("msg" + uid, JSONUtil.toJsonStr(messages), LocalCache.TIMEOUT);
-        ChatResponse response = new ChatResponse();
-        response.setQuestionTokens(completion.tokens());
-        return response;
     }
 }
