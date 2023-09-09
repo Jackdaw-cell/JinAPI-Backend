@@ -70,9 +70,9 @@ dubbo:
 #    address: nacos://111.230.23.40:8848
 jackdaw:
   openai:
-    api-key: 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
+    api-key: #私人的OpenKey
     api-host: https://api.openai.com/
-    proxy-host-name: 127.0.0.1
+    proxy-host-name: #代理服务器地址
     proxy-port: 7890
   api:
     access-key: jyaucpk629371039cjdkttest
