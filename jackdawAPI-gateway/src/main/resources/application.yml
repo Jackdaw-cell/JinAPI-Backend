@@ -26,6 +26,10 @@ spring:
           uri: http://localhost:8123
           predicates:
             - Path=/sms/**
+        - id: translate
+          uri: http://localhost:8123
+          predicates:
+            - Path=/translate/**
 #          filters:
 #            - AddRequestHeader=yupi,swag
 #            - AddRequestParameter=name,dog

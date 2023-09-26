@@ -73,7 +73,6 @@ public class SseServiceImpl implements SseService {
                 }
         );
         try {
-            //这个send是什么？
             sseEmitter.send(SseEmitter.event().reconnectTime(5000));
         } catch (IOException e) {
             e.printStackTrace();
