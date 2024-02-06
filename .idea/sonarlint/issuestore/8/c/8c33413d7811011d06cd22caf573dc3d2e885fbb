@@ -1,0 +1,12 @@
+
+J
+java:S37404"/Provide the parametrized type for this generic.(­é™ûùÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Éßª¼
+K
+java:S2696%"6Make the enclosing method "static" or remove this set.(·å¾4
+J
+java:S2209%"5Change this instance-reference to a static reference.(·å¾4
+[
+java:S11249"EReorder the modifiers to comply with the Java Language Specification.(¯ƒú›
+e
+java:S3252t"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(Ì²ƒž

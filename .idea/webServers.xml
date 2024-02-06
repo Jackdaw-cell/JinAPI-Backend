@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9468ea8e-97a5-456f-986e-e7b04a2e0439" name="Ayanami0">
+        <fileTransfer rootFolder="/usr/local/application/jackdawAPI" accessType="SFTP" host="111.230.23.40" port="6000" sshConfigId="6fc8daa6-a8bb-44bd-b734-c5a9d54cd192" sshConfig="root@111.230.23.40:6000 agent" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

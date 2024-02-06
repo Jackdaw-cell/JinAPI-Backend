@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/jackdawAPI-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/jackdawAPI-interface/pom.xml" />
+        <option value="$PROJECT_DIR$/jackdawapi-sdk/pom.xml" />
+        <option value="$PROJECT_DIR$/jackdawapi-common/pom.xml" />
+        <option value="$PROJECT_DIR$/jackdawAPI-openAIInterface/pom.xml" />
+        <option value="$PROJECT_DIR$/jackdawapi-apiDoc/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>

@@ -1,0 +1,8 @@
+
+`	java:S112?"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112H"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(ÔôÒ‘ÿÿÿÿÿ
+J
+java:S2864g"4Iterate over the "entrySet" instead of the "keySet".(øÛ€
+G
+java:S1144."1Remove this unused private "getHeaderMap" method.(„•İê

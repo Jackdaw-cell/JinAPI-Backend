@@ -1,0 +1,17 @@
+
+W
+java:S1075("ARefactor your code to get this URI from a customizable parameter.(ÒÒùƒ
+N	java:S106-"9Replace this use of System.out or System.err by a logger.(€ˆè
+m
+java:S1128"RRemove this unused import 'com.jackdawapi.jackdawapiinterface.service.MsmService'.(œË¹üÿÿÿÿ
+k
+java:S1128"URemove this unused import 'com.jackdawapi.jackdawapiinterface.util.RandomNumberUtil'.(ÚØÜ
+V
+java:S1128
+"ARemove this unused import 'org.springframework.util.StringUtils'.(Ğôÿ
+I
+java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ
+E
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ
+P
+java:S1128":Remove this unused import 'java.util.concurrent.TimeUnit'.(Æ™ş

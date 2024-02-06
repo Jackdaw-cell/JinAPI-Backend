@@ -1,0 +1,8 @@
+
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡¡·H
+G
+java:S16020",Remove useless curly braces around statement(ªÓùÀùÿÿÿÿ
+b
+java:S3252Z"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isBlank".(Ëþ¤¦
+e
+java:S3252`"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(Ì²ƒž

@@ -1,0 +1,13 @@
+
+`	java:S112V"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+^
+java:S2259D"HA "NullPointerException" could be thrown; "getMethod()" can return null.(±Šé€
+i
+java:S2259E"NA "NullPointerException" could be thrown; "getLocalAddress()" can return null.(Ó¾äŽüÿÿÿÿ
+V	java:S125B"<This block of commented-out lines of code should be removed.(áÒ¹ýÿÿÿÿ
+G
+java:S1135X"2Complete the task associated to this TODO comment.(¿›‘.
+Q	java:S125c"<This block of commented-out lines of code should be removed.(æ°Ô•
+N
+java:S1135…"2Complete the task associated to this TODO comment.(´„¢êøÿÿÿÿ
+W	java:S125º"<This block of commented-out lines of code should be removed.(çÒ£êúÿÿÿÿ

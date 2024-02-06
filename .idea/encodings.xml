@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/jackdawAPI-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdawAPI-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdawAPI-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdawAPI-interface/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdawAPI-openAIInterface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdawapi-apiDoc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdawapi-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdawapi-sdk/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdawapi-sdk/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

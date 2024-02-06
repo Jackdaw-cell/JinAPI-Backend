@@ -1,0 +1,15 @@
+
+E
+java:S1874!"/Remove this use of "isEmpty"; it is deprecated.(ŽÛç…
+V	java:S125,"<This block of commented-out lines of code should be removed.(¨Ýæžüÿÿÿÿ
+L
+java:S1874-"1Remove this use of "setMethod"; it is deprecated.(õŒßÈùÿÿÿÿ
+L
+java:S1874."1Remove this use of "setDomain"; it is deprecated.(ŒªáÁþÿÿÿÿ
+M
+java:S1874/"2Remove this use of "setVersion"; it is deprecated.(çÁŽùúÿÿÿÿ
+G
+java:S18740"1Remove this use of "setAction"; it is deprecated.(¡å£—
+a
+java:S32527"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(Í‚ž’ûÿÿÿÿ
+S	java:S106;"9Replace this use of System.out or System.err by a logger.(ÇÌû°øÿÿÿÿ

@@ -1,0 +1,39 @@
+
+c
+java:S3252µ"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isBlank".(È÷
+N
+java:S1135º"2Complete the task associated to this TODO comment.(¢¹Ç„ıÿÿÿÿ
+c
+java:S3252Ø"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isBlank".(È÷
+K
+java:S1128"6Remove this unused import 'com.alibaba.fastjson.JSON'.(Ö¢å$
+G
+java:S1128"1Remove this unused import 'com.google.gson.Gson'.(–§
+H
+java:S1128"-Remove this unused import 'okhttp3.Response'.(Ï‚ñ—øÿÿÿÿ
+^
+java:S1128"HRemove this unused import 'okhttp3.internal.http2.StreamResetException'.(±Á¦É
+w
+java:S1128""\Remove this unused import 'org.springframework.boot.configurationprocessor.json.JSONObject'.(‹î‹«øÿÿÿÿ
+P
+java:S1128#"5Remove this unused import 'org.springframework.http'.(çôø·ûÿÿÿÿ
+
+java:S1128("fRemove this unused import 'org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter'.(ˆíÁ–ıÿÿÿÿ
+K
+java:S1128-"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ
+?
+java:S1128.")Remove this unused import 'java.net.URI'.(Ö¦¨°
+S
+java:S1128/"8Remove this unused import 'java.net.URISyntaxException'.(Ä®íÿÿÿÿÿ
+H
+java:S11280"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ
+I
+java:S11281".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ
+\
+java:S11284"ARemove this unused import 'java.util.concurrent.ExecutorService'.(æ÷–£ùÿÿÿÿ
+V
+java:S11285";Remove this unused import 'java.util.concurrent.Executors'.(äåÒÛÿÿÿÿÿ
+R
+java:S11286"7Remove this unused import 'java.util.stream.IntStream'.(ÙÉ½Ÿùÿÿÿÿ
+Vsecrets:S6336ñ"<Make sure this Alibaba Cloud Access Key ID is not disclosed.(½Â«¸
+Zsecrets:S6336ñ"@Make sure this Alibaba Cloud Access Key Secret is not disclosed.(½Â«¸
